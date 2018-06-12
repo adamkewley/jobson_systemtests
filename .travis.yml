@@ -1,9 +1,12 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
 python: 3.4
-
 install: pip install -r requirements.txt --use-mirrors
-
 script: python3 setup.py test
-
+deploy:
+  provider: pypi
+  user: adamkewley
+  password:
+    secure: au0ju8fknvfXC7GymK0nq84rpJr7ndZ/hjgmAPKitHZGG9FOxQb0LiLBbVg9BmLNzL1EX5mpSl1dxLoWcTd2BYpOsMkmrdZfW6Wfgd30FYZoWRpPbgxVlHBF5KkkFqHMk3aHYuuIzE7VEKX2jvJTXzFFbYBPRw6aSZ0EUT4QUFCWVGuuyvv02zyBw1sTCZnXfSaeiSlgYfaSqzp0jPhGsOhMnKJJZ8/5WFZ6cMKN3gaEjISMElIufjVquektQS0aaTH45Te77KIjI38NO1ph8GtevxmWfMiwvIcL3BJlh8daEZ9XkIhJNpE0UKQ6a4gCLVkWIAqhbdPP5EkJuqZjSjhj0mKT2KlVo3ZjXHC2NhNvoHrTgh0+twCGW8tkDrZQNozv/4XiKNELKy441barEc3K/YBy/g2sTGhEnnrul1XpkXK5ljKS8zIyZXsDfcn+Mn71D2QR6FxlDvrdFsb3LNKsDcajxek24NSSXlW54DDe3kzTAUdQyqSwcES7/8Cqz/PRHdbqd2eD43pF+XEZN0S+tkTQss1EuNq1nccxl0KhH3GwDqvvekHqqVhYvrXJdKDm/rbc1FrSwZr1ziHdRP7JbEEazlTOjctwQJaHkC3ns2Xofb8Oza9OW+Cg2d3p3sh17Jj/r/oDlEgx4nC9JOSamZPBs2miCCL9n8ptQHg=
+  distributions: sdist
+  on:
+    tags: true
