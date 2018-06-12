@@ -36,9 +36,7 @@ def run(
     host,
     port,
     login,
-    password,
-    seconds_between_polling_requests=3,
-    max_test_duration_secs=6000):
+    password):
 
     __SystemTests().run_all(specs_dir, host, port, login, password)
 
