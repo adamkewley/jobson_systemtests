@@ -81,14 +81,13 @@ class __SystemTests(unittest.TestCase):
 
     def test_can_run_all_test_yaml_files(self, specs_dir, host, port, username, password):
         self.logger.info("Attempting to run tests.yml files in each spec directory")
-        specs_folder = _project_file(specs_dir)
 
-        if not os.path.exists(specs_folder):
-            raise AssertionError("%s: does not exist (has the deployment been built)?" % specs_folder)
+        if not os.path.exists(specs_dir):
+            raise AssertionError("%s: does not exist (has the deployment been built)?" % specs_dir)
 
         a_test_suite_failed = False
 
-        for spec_folder in _subdirs_in(specs_folder):
+        for spec_folder in _subdirs_in(specs_dir):
             try:
                 self._try_run_test_file(spec_folder, host, port, username, password)
             except AssertionError as ex:
@@ -216,13 +215,6 @@ class __SystemTests(unittest.TestCase):
         job_outputs_metadata = self._read_response_body_as_json(job_outputs_resp)
 
         print('output expectations NYI')
-
-
-def _project_file(path):
-    """
-    Returns the supplied path resolved relative to the project root.
-    """
-    return os.path.join(os.path.dirname(__file__), path)
 
 
 def _subdirs_in(path):
