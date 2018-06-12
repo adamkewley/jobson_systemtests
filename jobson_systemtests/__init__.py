@@ -215,18 +215,7 @@ class __SystemTests(unittest.TestCase):
 
         job_outputs_metadata = self._read_response_body_as_json(job_outputs_resp)
 
-        for output_expectation in outputs_expectations:
-            matcher = self._get_output_id_matcher(output_expectation["id"])
-            self._handle_output_expectation(spec_id, test_name, http_conn, output_expectation, job_id)
-
-    def _get_output_id_matcher(self, expected_id):
-        if expected_id.startswith("/"):
-            ()
-        else:
-            ()
-
-    def _handle_output_expectation(self, spec_id, test_name, http_conn, output_expectation, output_id):
-        ()
+        print('output expectations NYI')
 
 
 def _project_file(path):
