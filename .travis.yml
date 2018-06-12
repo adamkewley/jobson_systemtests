@@ -1,0 +1,9 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+python: 3.4
+
+install: pip install -r requirements.txt --use-mirrors
+
+script: python3 setup.py test
+
